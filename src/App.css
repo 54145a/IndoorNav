@@ -1,0 +1,120 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.menu-side {
+	visibility: hidden;
+	height: 100%;
+	display: flex;
+	margin-top: 0;
+	margin-bottom: 0;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.menu {
+	position: fixed;
+	display: flex;
+	text-align: center;
+	gap: 10px;
+}
+
+#menu-top,
+#menu-right {
+	right: 10px;
+}
+
+.menu > * {
+	visibility: visible;
+}
+
+#menu-top {
+	top: 10px;
+}
+
+#menu-left {
+	left: 10px;
+}
+
+.menu > button > div {
+	font-size: x-large;
+}
+
+.floor-controls {
+	mix-blend-mode: difference;
+	background: rgba(0, 0, 0, 0.1);
+	color: white;
+}
+
+.floor-slider {
+	writing-mode: vertical-lr;
+	direction: rtl;
+	touch-action: none;
+	width: 50px;
+}
+
+#floor-output {
+	display: block;
+	text-align: center;
+}
+
+dialog {
+	border-radius: 5px;
+	padding: 1em;
+}
+
+#settingsPanel {
+	min-width: 50%;
+}
+
+dialog form[method="dialog"] {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.5em;
+	margin-top: 1em;
+}
+
+dialog form > button {
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+.poi-label {
+	pointer-events: auto;
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.6);
+	color: white;
+	padding: 2px 6px;
+	border-radius: 3px;
+	white-space: nowrap;
+	font-size: 13px;
+}
+
+.poi-label:hover {
+	background: rgba(0, 0, 0, 0.8);
+}
+
+#instructionPanel {
+	position: fixed;
+	left: 10px;
+	bottom: 10px;
+	max-width: min(90vw, 480px);
+	max-height: 60vh;
+	overflow: auto;
+	background: rgba(0, 0, 0, 0.6);
+	color: white;
+	padding: 8px;
+	border-radius: 5px;
+	z-index: 10;
+}
+
+#instructionList button {
+	display: block;
+	width: 100%;
+	text-align: left;
+}

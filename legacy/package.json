@@ -1,0 +1,31 @@
+{
+	"name": "indoornav",
+	"version": "0.0.0",
+	"description": "Indoor 3D navigation with Wi-Fi fingerprint positioning",
+	"license": "AGPL-3.0-only",
+	"author": "IndoorNav Contributors",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build --mode production",
+		"start": "node --experimental-strip-types server.ts",
+		"check": "tsgo --project jsconfig.json"
+	},
+	"dependencies": {
+		"@54145a/storage2": "^0.5.0",
+		"@hono/node-server": "^2.0.6",
+		"@keupoz/strict-queryselector": "^1.2.0",
+		"eruda": "^3.4.3",
+		"hono": "^4.12.27",
+		"mime": "^4.1.0",
+		"three": "^0.184.0",
+		"typed-query-selector": "^2.12.2",
+		"unstorage": "^1.17.5"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20260624.1",
+		"@hono/vite-dev-server": "^0.26.0",
+		"@typescript/native-preview": "7.0.0-dev.20260707.2",
+		"vite": "^8.1.0"
+	}
+}

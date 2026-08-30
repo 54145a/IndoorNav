@@ -1,0 +1,49 @@
+{
+	"name": "indoornav",
+	"version": "0.0.0",
+	"description": "Indoor 3D navigation with Wi-Fi fingerprint positioning",
+	"license": "AGPL-3.0-only",
+	"author": "IndoorNav Contributors",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build --mode production",
+		"start": "node --experimental-strip-types server.ts",
+		"check": "tsgo --project tsconfig.json && tsgo --project src/tsconfig.json",
+		"build:navmesh": "node --experimental-strip-types scripts/generateNavMesh.ts",
+		"cap:sync": "capacitor sync",
+		"cap:sync:android": "pnpm build && capacitor sync android",
+		"cap:open:android": "capacitor open android"
+	},
+	"dependencies": {
+		"@54145a/storage2": "^0.6.0",
+		"@capacitor/core": "^8.5.0",
+		"@codext/capacitor-wifi": "^8.0.1",
+		"@hono/node-server": "^2.1.1",
+		"@keupoz/strict-queryselector": "link:../strict-queryselector",
+		"@preact/preset-vite": "^2.10.6",
+		"@preact/signals": "^2.11.1",
+		"@recast-navigation/core": "^0.43.1",
+		"@recast-navigation/generators": "^0.43.1",
+		"@recast-navigation/three": "^0.43.1",
+		"@recast-navigation/wasm": "^0.43.1",
+		"eruda": "^3.4.3",
+		"hono": "^4.13.5",
+		"mime": "^4.1.0",
+		"preact": "^10.29.8",
+		"recast-navigation": "^0.43.1",
+		"three": "^0.185.1",
+		"typed-query-selector": "^2.12.2"
+	},
+	"devDependencies": {
+		"@capacitor/android": "^8.5.0",
+		"@capacitor/cli": "^8.5.0",
+		"@cloudflare/workers-types": "^5.20260829.1",
+		"@hono/vite-dev-server": "^0.26.1",
+		"@types/node": "^26.4.0",
+		"@types/three": "0.185.4",
+		"@typescript/native-preview": "7.0.0-dev.20260707.2",
+		"typescript": "^7.0.2",
+		"vite": "^8.2.2"
+	}
+}

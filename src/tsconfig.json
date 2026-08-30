@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"checkJs": true,
+		"strict": true,
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"strictNullChecks": false,
+		"maxNodeModuleJsDepth": 0,
+		"skipLibCheck": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"types": ["vite/client"]
+	},
+	"exclude": ["**/node_modules/**"]
+}

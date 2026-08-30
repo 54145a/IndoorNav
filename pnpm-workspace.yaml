@@ -1,0 +1,6 @@
+allowBuilds:
+  esbuild: true
+onlyBuiltDependencies:
+  - esbuild
+overrides:
+  '@keupoz/strict-queryselector': link:../strict-queryselector

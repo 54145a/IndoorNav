@@ -1,0 +1,12 @@
+build/*
+node_modules
+pnpm-lock.yaml
+dist
+package-lock.json
+.playwright-mcp
+android/
+
+# Map data (not redistributable)
+public/map.obj
+public/map.mtl
+public/map.navmesh.bin

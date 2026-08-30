@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "checkJs": true,
+        "strict": true,
+        "target": "esnext",
+        "module": "nodenext",
+        "strictNullChecks": false,
+        "allowImportingTsExtensions": true,
+        "types": ["vite/client", "@cloudflare/workers-types"],
+        "maxNodeModuleJsDepth": 0
+    },
+    "exclude": ["dist", "build"]
+}

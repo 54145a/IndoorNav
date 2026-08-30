@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="module" src="src/loadEruda.js"></script>
+	<title>导航</title>
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+		}
+
+		.menu-side {
+			visibility: hidden;
+			height: 100%;
+			display: flex;
+			margin-top: 0;
+			margin-bottom: 0;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.menu {
+			position: fixed;
+			display: flex;
+			text-align: center;
+			gap: 10px;
+		}
+
+		#menu-top,
+		#menu-right {
+			right: 10px;
+		}
+
+		.menu>* {
+			visibility: visible;
+		}
+
+		#menu-top {
+			top: 10px
+		}
+
+		#menu-left {
+			left: 10px;
+		}
+
+		.menu>button>div {
+			font-size: x-large;
+		}
+
+		dialog {
+			border-radius: 5px;
+			padding: 1em;
+		}
+
+		#settingsPanel {
+			min-width: 50%;
+		}
+
+		dialog form[method="dialog"] {
+			display: flex;
+			justify-content: flex-end;
+			gap: 0.5em;
+			margin-top: 1em;
+		}
+
+		dialog form>button {
+			background-color: white;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="menu-top" class="menu">
+		<button id="startNav">
+			<div>🧭</div>导航
+		</button>
+		<button id="openSettings">
+			<div>⚙️</div>设置
+		</button>
+		<button id="aboutUs">
+			<div>ℹ️</div>关于
+		</button>
+	</div>
+	<div id="menu-left" class="menu-side menu">
+		<div style="mix-blend-mode: difference; background: rgba(0, 0, 0, 0.1); color: white;">
+			<label>楼层<br>
+				<input type="range" id="floorIndex"
+					style="writing-mode: vertical-lr; direction: rtl; touch-action: none; width: 50px" min="-1" max="1"
+					value="999" oninput="this.parentElement.nextElementSibling.value = +this.value + (+this.value >= 0);" />
+			</label>
+			<output id="floor-output" style="display: block; text-align: center">
+				<script>document.currentScript.parentElement.previousElementSibling.querySelector("input").dispatchEvent(new Event("input"));</script>
+			</output>
+		</div>
+	</div>
+	<div id="menu-right" class="menu-side menu">
+		<button id="barometer">
+			<div>🎈</div>🔗<span id="barometerConnected">❌</span>
+		</button>
+		<button class="camMove-global">
+			<div>🗺</div>全局
+		</button>
+		<button id="positioning">
+			<div>📍</div>敬请<br>期待
+		</button>
+	</div>
+	<dialog id="settingsPanel">
+		<details>
+			<summary>临时设置（刷新重置）</summary>
+		</details>
+		<details>
+			<summary>一般设置</summary>
+		</details>
+		<details>
+			<summary>调试选项</summary><label>显示地图 <input type="checkbox" id="showMap" /></label><label>显示寻路搜索点云 <input
+					type="checkbox" id="showAStarFootprint" /></label>
+		</details>
+		<form method="dialog"><button>关闭</button></form>
+	</dialog>
+	<dialog id="aboutUsDialog">
+		<p>由Three.js驱动。</p>
+		<p>此版本仅供内部评估。</p>
+		<form method="dialog"><button>关闭</button></form>
+	</dialog>
+	<dialog id="pickDialog">
+		<div class="message"></div>
+		<p>点击“开始选择”，然后请单击地图中要选择的位置。</p>
+		<form method="dialog">
+			<button value="start">开始选择</button>
+			<button value="">取消</button>
+		</form>
+	</dialog>
+	<dialog id="barometerPanel">
+		<p>敬请期待</p>
+		<form method="dialog"><button>关闭</button></form>
+	</dialog>
+	<dialog id="pickConfirm">
+		<article>
+			<div class="message"></div>
+			<form method="dialog">
+				<button value="confirm">确定</button>
+				<button value="retry">重新选择</button>
+				<button value="">取消</button>
+			</form>
+		</article>
+	</dialog>
+	<dialog id="pickFailed">
+		<p>你没有选择任何位置。</p>
+		<form method="dialog">
+			<button value="resume">重新选择</button>
+			<button value="">取消</button>
+		</form>
+	</dialog>
+	<dialog id="navStart">
+		<div class="message"></div>
+		<form method="dialog">
+			<button value="">敬请期待</button>
+			<button value="pickEnd">自定义位置</button>
+		</form>
+	</dialog>
+	<dialog id="navInProgress">
+		<progress></progress>
+	</dialog>
+	<script type="module" src="src/main.js"></script>
+</body>
+
+</html>

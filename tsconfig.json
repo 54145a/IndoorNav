@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"checkJs": true,
+		"strict": true,
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"strictNullChecks": false,
+		"maxNodeModuleJsDepth": 0,
+		"skipLibCheck": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
+		"types": ["node"]
+	},
+	"include": [
+		"server.ts",
+		"app.ts",
+		"worker.ts",
+		"dev.ts",
+		"vite.config.ts",
+		"capacitor.config.ts",
+		"scripts/**/*.ts"
+	],
+	"exclude": ["**/node_modules/**"]
+}
