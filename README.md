@@ -6,6 +6,7 @@ Indoor 3D navigation with Wi-Fi fingerprint positioning.
 
 - Loads a 3D building model (OBJ/MTL) with Three.js
 - Pathfinding via Recast/Detour navmesh or GPU-scan A*
+- **Scan-based A\***: pathfinds directly on the 3D model surface via GPU raycasting — no navmesh preprocessing required
 - Step-by-step navigation instructions with POI waypoints
 - Wi-Fi fingerprint-based positioning (Android, via `@codext/capacitor-wifi`)
 - Fingerprint collector for building the signal database
