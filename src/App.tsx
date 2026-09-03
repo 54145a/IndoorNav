@@ -260,14 +260,16 @@ interface LoadMapResult {
 }
 
 async function loadMap(mapDefinition: MapDefinition, rotation: THREE.Euler = new THREE.Euler(0, 0, 0), scale: number = 1): Promise<LoadMapResult> {
-	let resultObject3D: THREE.Object3D | undefined;
+	let sceneObject3D: THREE.Object3D | undefined;
+	let mapSceneObject3D: THREE.Object3D | undefined;
 	const loadObj = (objLoader: OBJLoader, targetScene: THREE.Scene) => new Promise<void>(resolve => {
 		objLoader.load(`/${mapDefinition.name}.obj`, (object) => {
 			object.rotation.copy(rotation);
 			object.scale.setScalar(scale);
 			applyDoubleSide(object);
 			targetScene.add(object);
-			resultObject3D = object;
+			if (targetScene === scene) sceneObject3D = object;
+			else mapSceneObject3D = object;
 			resolve();
 		});
 	});
@@ -291,7 +293,7 @@ async function loadMap(mapDefinition: MapDefinition, rotation: THREE.Euler = new
 		labelScene.add(createPoiLabel(spot));
 	}
 	return {
-		mapObject3D: resultObject3D ?? new THREE.Object3D(),
+		mapObject3D: sceneObject3D ?? new THREE.Object3D(),
 		mapConf: mapDefinition
 	};
 }

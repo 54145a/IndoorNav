@@ -69,14 +69,6 @@ body {
 dialog {
 	border-radius: 5px;
 	padding: 1em;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-#pickDialog {
-	top: 15%;
 }
 
 dialog form[method="dialog"] {
