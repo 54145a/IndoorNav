@@ -62,6 +62,10 @@ body {
 	text-align: center;
 }
 
+#settingsPanel {
+	min-width: 50%;
+}
+
 dialog {
 	border-radius: 5px;
 	padding: 1em;
@@ -71,8 +75,8 @@ dialog {
 	transform: translate(-50%, -50%);
 }
 
-#settingsPanel {
-	min-width: 50%;
+#pickDialog {
+	top: 15%;
 }
 
 dialog form[method="dialog"] {
